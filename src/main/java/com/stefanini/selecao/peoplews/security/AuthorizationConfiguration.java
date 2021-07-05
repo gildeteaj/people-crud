@@ -27,7 +27,7 @@ public class AuthorizationConfiguration extends WebSecurityConfigurerAdapter {
 			    .antMatchers("/*").permitAll()
 			    .antMatchers("/swagger-ui/**").permitAll()
 				.and().csrf().disable().authorizeRequests()
-				.antMatchers("/**").hasRole("USER").anyRequest().authenticated().and().httpBasic();
+				.antMatchers("/**").hasRole("USER").anyRequest().authenticated().and().httpBasic().and().cors();
 	}
 
 	@Autowired
