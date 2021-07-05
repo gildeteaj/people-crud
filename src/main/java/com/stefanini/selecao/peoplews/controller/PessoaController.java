@@ -13,6 +13,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,7 +44,7 @@ public class PessoaController {
 	private SequenceGenerator sequenceGenerator;
 	
 	
-	
+	@CrossOrigin
 	@GetMapping	
 	@Cacheable(value = "listaDePessoas")	
 	public List<PessoaDto> listar(@RequestParam(required = false) String cpf) {
@@ -57,7 +58,7 @@ public class PessoaController {
 		}
 	}
 	
-	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public ResponseEntity<PessoaDto> detalhar(@PathVariable Long id) {
 		Optional<Pessoa> pessoa = pessoaRepository.findById(id);
@@ -68,7 +69,7 @@ public class PessoaController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	
+	@CrossOrigin
 	@PostMapping
 	@Transactional
 	@CacheEvict(value = "listaDePessoas", allEntries = true)
@@ -88,7 +89,7 @@ public class PessoaController {
 		return ResponseEntity.created(uri).body(new PessoaDto(pessoa));
 	}
 	
-	
+	@CrossOrigin
 	@PutMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDePessoas", allEntries = true)
@@ -115,6 +116,7 @@ public class PessoaController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@CrossOrigin
 	@DeleteMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDePessoas", allEntries = true)
