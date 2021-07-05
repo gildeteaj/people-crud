@@ -33,7 +33,7 @@ import com.stefanini.selecao.peoplews.service.SequenceGenerator;
 
 @RestController
 @RequestMapping("/api/v1/pessoas")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
 public class PessoaController {
 	
 	@Autowired
