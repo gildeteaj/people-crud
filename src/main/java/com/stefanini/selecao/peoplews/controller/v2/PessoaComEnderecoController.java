@@ -17,6 +17,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,7 @@ import com.stefanini.selecao.peoplews.model.Pessoa;
 import com.stefanini.selecao.peoplews.repository.PessoaRepository;
 import com.stefanini.selecao.peoplews.service.SequenceGenerator;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v2/pessoas")
 public class PessoaComEnderecoController {
