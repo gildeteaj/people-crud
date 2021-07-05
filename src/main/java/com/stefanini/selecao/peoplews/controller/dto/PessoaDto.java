@@ -2,8 +2,8 @@ package com.stefanini.selecao.peoplews.controller.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
-import org.springframework.data.domain.Page;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -141,8 +141,12 @@ public class PessoaDto {
 		this.dataUltAtualizacao = dataUltAtualizacao;
 	}
 
-	public static Page<PessoaDto> converter(Page<Pessoa> pessoas) {
-		return pessoas.map(PessoaDto::new);
+	public static List<PessoaDto> converter( List<Pessoa> pessoas) {
+		List<PessoaDto> lista = new ArrayList<PessoaDto>();
+		for (Pessoa p: pessoas) {
+			lista.add(new PessoaDto(p));
+		}		
+		return lista;
 	}
 
 }

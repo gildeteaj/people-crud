@@ -50,14 +50,13 @@ public class PessoaController {
 	
 	@GetMapping	
 	@Cacheable(value = "listaDePessoas")	
-	public Page<PessoaDto> listar(@RequestParam(required = false) String cpf, 
-			@PageableDefault(sort = "dataCadastro", direction = Direction.DESC, page = 0, size = 10) Pageable paginacao) {
+	public List<PessoaDto> listar(@RequestParam(required = false) String cpf) {
 		
 		if (cpf == null) {
-			Page<Pessoa> pessoas = pessoaRepository.findAll(paginacao);
+			List<Pessoa> pessoas = pessoaRepository.findAll();
 			return PessoaDto.converter(pessoas);
 		} else {
-			Page<Pessoa> pessoas = pessoaRepository.findByCpf(cpf, paginacao);
+			List<Pessoa> pessoas = pessoaRepository.findByCpf(cpf);
 			return PessoaDto.converter(pessoas);
 		}
 	}
