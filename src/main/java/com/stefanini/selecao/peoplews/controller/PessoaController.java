@@ -33,8 +33,7 @@ import com.stefanini.selecao.peoplews.service.SequenceGenerator;
 
 @RestController
 @RequestMapping("/api/v1/pessoas")
-
-
+@CrossOrigin
 public class PessoaController {
 	
 	@Autowired
@@ -44,7 +43,7 @@ public class PessoaController {
 	private SequenceGenerator sequenceGenerator;
 	
 	
-	@CrossOrigin
+	
 	@GetMapping	
 	@Cacheable(value = "listaDePessoas")	
 	public List<PessoaDto> listar(@RequestParam(required = false) String cpf) {
@@ -58,7 +57,7 @@ public class PessoaController {
 		}
 	}
 	
-	@CrossOrigin
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<PessoaDto> detalhar(@PathVariable Long id) {
 		Optional<Pessoa> pessoa = pessoaRepository.findById(id);
@@ -69,7 +68,7 @@ public class PessoaController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@CrossOrigin
+	
 	@PostMapping
 	@Transactional
 	@CacheEvict(value = "listaDePessoas", allEntries = true)
@@ -89,7 +88,7 @@ public class PessoaController {
 		return ResponseEntity.created(uri).body(new PessoaDto(pessoa));
 	}
 	
-	@CrossOrigin
+	
 	@PutMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDePessoas", allEntries = true)
@@ -116,7 +115,7 @@ public class PessoaController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@CrossOrigin
+	
 	@DeleteMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDePessoas", allEntries = true)
