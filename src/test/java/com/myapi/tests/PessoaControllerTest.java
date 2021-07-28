@@ -1,4 +1,4 @@
-package com.stefanini.selecao.tests;
+package com.myapi.tests;
 
 
 

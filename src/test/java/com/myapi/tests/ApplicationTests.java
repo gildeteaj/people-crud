@@ -1,4 +1,4 @@
-package com.stefanini.selecao.tests;
+package com.myapi.tests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
