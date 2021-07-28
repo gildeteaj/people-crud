@@ -20,9 +20,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
 
-import com.stefanini.selecao.peoplews.Application;
-import com.stefanini.selecao.peoplews.controller.dto.PessoaDto;
-import com.stefanini.selecao.peoplews.model.Pessoa;
+import com.myapi.peoplews.Application;
+import com.myapi.peoplews.controller.dto.PessoaDto;
+import com.myapi.peoplews.model.Pessoa;
 
 
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
